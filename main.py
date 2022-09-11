@@ -40,7 +40,7 @@ def signals():
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36',
     }
 
-    response = requests.get('https://games.scoretrend.net/',headers=headers,, timeout=10).text
+    response = requests.get('https://games.scoretrend.net/',headers=headers,timeout=10).text
     data = json.loads(response)
     for d in data[0]:
         #pprint(d)
