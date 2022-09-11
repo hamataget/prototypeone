@@ -11,9 +11,36 @@ file = "db.json"
 def signals():
     with open(file, 'r', encoding='utf-8') as f:
         my_db = json.load(f)
-    
+    headers = {
+        'authority':
+        'games.scoretrend.net',
+        'accept':
+        '*/*',
+        'accept-language':
+        'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,ar;q=0.6',
+        'cache-control':
+        'no-cache',
+        'origin':
+        'https://scoretrend.net',
+        'pragma':
+        'no-cache',
+        'sec-ch-ua':
+        '"Chromium";v="104", " Not A;Brand";v="99", "Google Chrome";v="104"',
+        'sec-ch-ua-mobile':
+        '?0',
+        'sec-ch-ua-platform':
+        '"Windows"',
+        'sec-fetch-dest':
+        'empty',
+        'sec-fetch-mode':
+        'cors',
+        'sec-fetch-site':
+        'same-site',
+        'user-agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36',
+    }
 
-    response = requests.get('https://games.scoretrend.net/').text
+    response = requests.get('https://games.scoretrend.net/',headers=headers,, timeout=10).text
     data = json.loads(response)
     for d in data[0]:
         #pprint(d)
